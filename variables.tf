@@ -35,6 +35,11 @@ variable "master_lb_prefix" {
 variable "master_lb_type" {
   default = "private"
 }
+variable "master_lb_port" {
+  default = {
+    https = ["443", "Tcp", "6443"]
+  }
+}
 variable "master_lb_private_ip_address" {
   default = ""
 }
@@ -59,6 +64,11 @@ variable "worker_lb_prefix" {
 }
 variable "worker_lb_type" {
   default = "private"
+}
+variable "worker_lb_port" {
+  default = {
+    https = ["443", "Tcp", "443"]
+  }
 }
 variable "worker_lb_private_ip_address" {
   default = ""

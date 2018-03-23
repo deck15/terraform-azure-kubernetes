@@ -24,9 +24,7 @@ module "master_loadbalancer" {
   subnet_id           = "${data.azurerm_subnet.subnet.id}"
   private_ip_address  = "${var.master_lb_private_ip_address}"
 
-  "lb_port" {
-    https = ["443", "Tcp", "443"]
-  }
+  "lb_port" = "${var.master_lb_port}"
 }
 
 module "kube_master" {
@@ -59,9 +57,7 @@ module "worker_loadbalancer" {
   subnet_id           = "${data.azurerm_subnet.subnet.id}"
   private_ip_address  = "${var.worker_lb_private_ip_address}"
 
-  "lb_port" {
-    https = ["443", "Tcp", "443"]
-  }
+  "lb_port" = "${var.worker_lb_port}"
 }
 
 module "kube_worker" {
